@@ -111,7 +111,6 @@ return {
 					},
 					-- Might configure some other layout later
 				}, -- End of layouts
-
 			}, -- End of picker
 			---------------------------------------------------------------------------------------------------------
 			indent = {
@@ -145,7 +144,7 @@ return {
 			--------------------------------------------------------------------------------------------------------
 		},
 		-- End of opts
-        keys = {
+		keys = {
 			-- For LazyGit & Git
 			{
 				"<leader>lg",
@@ -275,6 +274,29 @@ return {
 					require("snacks").indent.disable()
 				end,
 				desc = "Disable indentation lines",
+			},
+		},
+	},
+
+	-- TO/DO comments with snacks
+	{
+		"folke/todo-comments.nvim",
+		event = { "BufReadPre", "BufNewFile" },
+		optional = true,
+		keys = {
+			{
+				"<leader>pt",
+				function()
+					require("snacks").picker.todo_comments()
+				end,
+				desc = "Look through ToDo comments",
+			},
+			{
+				"<leader>pT",
+				function()
+					require("snacks").picker.todo_comments({ keywords = { "TODO", "FIX", "FIXME" } })
+				end,
+				desc = "Todo/Fix/Fixme",
 			},
 		},
 	},
