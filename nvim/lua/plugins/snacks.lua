@@ -4,8 +4,147 @@ return {
 		priority = 1000,
 		lazy = false,
 
-		opts = {},
+		opts = {
 
+			explorer = {
+				enabled = false,
+				layout = {
+					cycle = false,
+				},
+			},
+			---------------------------------------------------------------------------------------------------------
+			quickfile = {
+				enabled = true,
+				exclude = { "latex" },
+			},
+			---------------------------------------------------------------------------------------------------------
+			picker = {
+				enabled = true,
+
+				matchers = {
+					frecency = true,
+					cwd_bonus = true,
+				},
+
+				formatters = {
+					file = {
+						filename_first = false,
+						filename_only = false,
+						icon_width = 2,
+					},
+				},
+
+				layout = {
+					preset = "telescope",
+					cycle = false,
+				},
+
+				layouts = {
+
+					-- For telescope layout:
+					telescope = {
+						reverse = false,
+						layout = {
+							box = "horizontal",
+							backdrop = false,
+							width = 0.9,
+							height = 0.9,
+							border = "bold",
+							{
+								box = "vertical",
+								{
+									win = "input",
+									height = 1,
+									border = "rounded",
+									title = "{title} {live} {flags}",
+									title_pos = "center",
+								},
+								{ win = "list", title = " Results ", title_pos = "center", border = "rounded" },
+							},
+							{
+								win = "preview",
+								title = "{preview:Preview}",
+								width = 0.50,
+								border = "rounded",
+								title_pos = "center",
+							},
+						},
+					},
+
+					-- For select layout
+					select = {
+						preview = false,
+						layout = {
+							backdrop = false,
+							width = 0.6,
+							min_width = 80,
+							height = 0.4,
+							min_height = 10,
+							box = "vertical",
+							border = "rounded",
+							title = "{title}",
+							title_pos = "center",
+							{ win = "input", height = 1, border = "bottom" },
+							{ win = "list", border = "none" },
+							{ win = "preview", title = "{preview}", width = 0.6, height = 0.4, border = "top" },
+						},
+					},
+
+					-- For ivy layout
+					ivy = {
+						layout = {
+							box = "vertical",
+							backdrop = false,
+							width = 0,
+							height = 0.4,
+							position = "bottom",
+							border = "top",
+							title = " {title} {live} {flags}",
+							title_pos = "left",
+							{ win = "input", height = 1, border = "bottom" },
+							{
+								box = "horizontal",
+								{ win = "list", border = "none" },
+								{ win = "preview", title = "{preview}", width = 0.5, border = "left" },
+							},
+						},
+					},
+					-- Might configure some other layout later
+				}, -- End of layouts
+
+			}, -- End of picker
+			---------------------------------------------------------------------------------------------------------
+			indent = {
+				enabled = true,
+				priority = 1,
+				only_scope = true,
+				animate = {
+					enabled = vim.fn.has("nvim-0.10") == 1,
+					style = "out",
+					easing = "linear",
+					duration = { step = 30, total = 700 },
+				},
+			},
+
+			---------------------------------------------------------------------------------------------------------
+			dashboard = {
+				sections = {
+					{ section = "header" },
+					{ section = "keys", gap = 1, padding = 1 },
+					{ section = "startup" },
+					{
+						section = "terminal",
+						cmd = "pokemon-colorscripts -r; sleep .1",
+						random = 10,
+						pane = 2,
+						indent = 4,
+						height = 30,
+					},
+				},
+			},
+			--------------------------------------------------------------------------------------------------------
+		},
+		-- End of opts
         keys = {
 			-- For LazyGit & Git
 			{
