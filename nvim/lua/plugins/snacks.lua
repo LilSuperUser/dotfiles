@@ -109,6 +109,7 @@ return {
 							},
 						},
 					},
+
 					-- Might configure some other layout later
 				}, -- End of layouts
 			}, -- End of picker
@@ -133,7 +134,7 @@ return {
 					{ section = "startup" },
 					{
 						section = "terminal",
-						cmd = "pokemon-colorscripts -r; sleep .1",
+						cmd = "pokemon-colorscripts -r -s; sleep .1",
 						random = 10,
 						pane = 2,
 						indent = 4,
@@ -142,6 +143,26 @@ return {
 				},
 			},
 			--------------------------------------------------------------------------------------------------------
+			image = {
+				enabled = true,
+				doc = {
+					enabled = true,
+					inline = true,
+					float = true,
+					max_width = 60,
+					max_height = 30,
+				},
+				img_dirs = {
+					"img",
+					"images",
+					"assets",
+					"static",
+					"public",
+					"media",
+					"attachments",
+				},
+			},
+			---------------------------------------------------------------------------------------------------------
 		},
 		-- End of opts
 		keys = {
@@ -260,6 +281,7 @@ return {
 				end,
 				desc = "Pick & witch git branches",
 			},
+
 			-- For indents
 			{
 				"<leader>io",
