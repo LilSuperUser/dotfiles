@@ -1,0 +1,120 @@
+{
+    "height": 20,
+    "spacing": 1,
+    "modules-left": [
+        "hyprland/workspaces"
+    ],
+    "modules-center": [
+        "hyprland/window"
+    ],
+    "modules-right": [
+        "pulseaudio",
+        "network",
+        "cpu",
+        "memory",
+        "battery",
+        "clock",
+        "tray",
+        "power-profiles-daemon"
+    ],
+    ///////////////////////////////////////////////////////////////////
+    "hyprland/workspaces": {
+        "format": "{name}",
+        "persistent-workspaces": {
+            "*": 3
+        }
+    },
+    "hyprland/window": {
+        "format": "{}",
+        "rewrite": {
+            "(.*) - Zen Browser": "🌎 $1",
+            "(.*) - zsh": "> [$1]",
+            "(.*) - Kitty": "  $1",
+            "(.*) - Code": "🧠 $1",
+            "(.*) - VSCodium": "🧠 $1",
+            "(.*) - Thunar": "🗂️ $1",
+            "(.*) - Dolphin": "📁 $1",
+            "(.*) - Kate": "📝 $1",
+            "(.*) - VLC media player": "🎞️ $1",
+            "(.*) - Telegram Desktop": "✈️ $1",
+            "(.*) - Discord": "💬 $1",
+            "(.*) - OBS Studio": "🎥 $1",
+            "(.*) - LibreOffice Writer": "📄 $1",
+            "(.*) - KeePassXC": "🔐 $1",
+            "(.*) - qBittorrent": "📥 $1"
+        }
+    },
+    "tray": {
+        "icon-size": 17,
+        "spacing": 7
+    },
+    "clock": {
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+        "format-alt": "{:%Y-%m-%d}"
+    },
+    "cpu": {
+        "format": "{usage}% ",
+        "tooltip": false
+    },
+    "memory": {
+        "format": "{}% "
+    },
+    "battery": {
+        "states": {
+            "good": 95,
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{capacity}% {icon}",
+        "format-full": "{capacity}% {icon}",
+        "format-charging": "{capacity}% ",
+        "format-plugged": "{capacity}% ",
+        "format-alt": "{time} {icon}",
+        "format-icons": [
+            "",
+            "",
+            "",
+            "",
+            ""
+        ]
+    },
+    "network": {
+        "format-wifi": "{essid} ({signalStrength}%) ",
+        "format-ethernet": "🖧",
+        "tooltip-format": "{ifname} via {gwaddr} 🖧",
+        "format-linked": "{ifname} (No IP) 🖧",
+        "format-disconnected": "Disconnected ⚠",
+        "format-alt": "{ifname}: {ipaddr}/{cidr}"
+    },
+    "pulseaudio": {
+        "scroll-step": 5,
+        "format": "{volume}% {icon} {format_source}",
+        "format-bluetooth": "{volume}% {icon} {format_source}",
+        "format-bluetooth-muted": " {icon} {format_source}",
+        "format-muted": " {format_source}",
+        "format-source": "{volume}% ",
+        "format-source-muted": "",
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "",
+            "headset": "",
+            "default": [
+                "",
+                "",
+                ""
+            ]
+        },
+        "on-click": "pavucontrol"
+    },
+    "power-profiles-daemon": {
+        "format": "{icon}",
+        "tooltip-format": "Power profile: {profile}nDriver: {driver}",
+        "tooltip": true,
+        "format-icons": {
+            "default": "",
+            "performance": "",
+            "balanced": "",
+            "power-saver": ""
+        }
+    }
+}
