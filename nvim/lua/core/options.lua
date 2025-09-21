@@ -33,7 +33,7 @@ opt.backup = false
 opt.undofile = true
 
 -- UI Stuff
-opt.wrap = false
+opt.wrap = true
 opt.termguicolors = true
 opt.background = "dark"
 opt.scrolloff = 8
