@@ -1,11 +1,14 @@
 return {
 	"neovim/nvim-lspconfig",
-	event = { "BufReadPre", "BufNewFile" },
+	event = { "BufReadPre", "BufNewFile", "BufNew" },
 	dependencies = {
 		"hrsh7th/cmp-nvim-lsp",
 		{ "antosha417/nvim-lsp-file-operations", config = true },
+		{ "folke/neodev.nvim", opts = {} },
 	},
 	config = function()
+		local cmp_nvim_lsp = require("cmp_nvim_lsp")
+
 		vim.api.nvim_create_autocmd("LspAttach", {
 			group = vim.api.nvim_create_augroup("UserLspConfig", {}),
 			callback = function(ev)
@@ -29,7 +32,7 @@ return {
 				opts.desc = "See available code actions"
 				vim.keymap.set({ "n", "v" }, "<leader>vca", function()
 					vim.lsp.buf.code_action()
-				end, opts) -- see available code actions, in visual mode will apply to selection
+				end, opts)
 
 				opts.desc = "Smart rename"
 				vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts) -- smart rename
@@ -60,20 +63,24 @@ return {
 		}
 
 		vim.diagnostic.config({
+			title = false,
+			underline = { severity = vim.diagnostic.severity.ERROR },
+			virtual_text = true,
 			signs = {
 				text = signs,
 			},
-			virtual_text = true,
-			underline = true,
 			update_in_insert = false,
+			severity_sort = true,
+			float = {
+				style = "minimal",
+				border = "rounded",
+				header = "",
+				prefix = "",
+			},
 		})
 
-		local lspconfig = require("lspconfig")
-		local cmp_nvim_lsp = require("cmp_nvim_lsp")
-		local capabilities = cmp_nvim_lsp.default_capabilities()
-
-		lspconfig.lua_ls.setup({
-			capabilities = capabilities,
+		-- LSP Setup
+		vim.lsp.config("lua_ls", {
 			settings = {
 				Lua = {
 					diagnostics = {
@@ -91,9 +98,9 @@ return {
 				},
 			},
 		})
+		vim.lsp.enable("lua_ls", true)
 
-		lspconfig.emmet_language_server.setup({
-			capabilities = capabilities,
+		vim.lsp.config("emmet_language_server", {
 			filetypes = {
 				"css",
 				"eruby",
@@ -118,37 +125,17 @@ return {
 				variables = {},
 			},
 		})
+		vim.lsp.enable("emmet_language_server", true)
 
-		lspconfig.denols.setup({
-			capabilities = capabilities,
-			root_dir = lspconfig.util.root_pattern("deno.json", "deno.jsonc"),
-		})
-
-		lspconfig.ts_ls.setup({
-			capabilities = capabilities,
-			filetypes = {
-				"javascript",
-				"javascriptreact",
-				"typescript",
-				"typescriptreact",
-			},
+		vim.lsp.config("denols", {
 			root_dir = function(fname)
-				local util = lspconfig.util
-				return not util.root_pattern("deno.json", "deno.jsonc")(fname)
-					and util.root_pattern("tsconfig.json", "package.json", "jsconfig.json", ".git")(fname)
+				local util = require("lspconfig.util")
+				return util.root_pattern("deno.json", "deno.jsonc")(fname)
 			end,
-			single_file_support = false,
-			init_options = {
-				preferences = {
-					includeCompletionsForModuleExports = true,
-					includeCompletionsForImportStatements = true,
-				},
-			},
 		})
+		vim.lsp.enable("denols", true)
 
-		-- gopls
-		lspconfig.gopls.setup({
-			capabilities = capabilities,
+		vim.lsp.config("gopls", {
 			settings = {
 				gopls = {
 					analyses = {
@@ -159,5 +146,55 @@ return {
 				},
 			},
 		})
+
+		vim.lsp.config("clangd", {
+			capabilities = {
+				offsetEncoding = { "utf-8", "utf-16" },
+				textDocument = {
+					completion = {
+						editsNearCursor = true,
+					},
+				},
+			},
+			cmd = {
+				"clangd",
+				"--background-index",
+				"--clang-tidy",
+				"--header-insertion=iwyu",
+				"--completion-style=detailed",
+				"--function-arg-placeholders",
+				"--fallback-style={BasedOnStyle: llvm, IndentWidth: 4}",
+			},
+			filetypes = { "c", "cpp", "objc", "objcpp", "cuda" },
+			root_markers = {
+				"compile_commands.json",
+				"compile_flags.txt",
+				"configure.ac", -- AutoTools
+				"Makefile",
+				"configure.ac",
+				"configure.in",
+				"config.h.in",
+				"meson.build",
+				"meson_options.txt",
+				"build.ninja",
+				".git",
+			},
+			on_init = function(client, init_result)
+				if init_result.offsetEncoding then
+					client.offset_encoding = init_result.offsetEncoding
+				end
+			end,
+
+			on_attach = function(client, bufnr)
+				vim.api.nvim_buf_create_user_command(bufnr, "LspClangdSwitchSourceHeader", function()
+					switch_source_header(bufnr, client)
+				end, { desc = "Switch between source/header" })
+
+				vim.api.nvim_buf_create_user_command(bufnr, "LspClangdShowSymbolInfo", function()
+					symbol_info(bufnr, client)
+				end, { desc = "Show symbol info" })
+			end,
+		})
+		vim.lsp.enable("clangd", true)
 	end,
 }
