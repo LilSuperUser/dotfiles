@@ -12,9 +12,6 @@ return {
 			javascriptreact = { "biomejs" },
 			typescriptreact = { "biomejs" },
 			svelte = { "biomejs" },
-			python = { "pylint" },
-			c = { "cpplint" },
-			cpp = { "cpplint" },
 			makefile = { "checkmake" },
 		}
 

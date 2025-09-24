@@ -33,11 +33,7 @@ return {
 				typescript = { "biome-check" },
 				json = { "prettier" },
 				yaml = { "prettier" },
-				python = { "black" },
-				c = { "clang_format" },
-				cpp = { "clang_format" },
 				rust = { "rustfmt" },
-				-- ["markdown.mdx"] = { "prettier", "markdownlint", "markdown-toc" },
 			},
 			-- format_on_save = {
 			-- 	lsp_fallback = true,
@@ -55,13 +51,6 @@ return {
 				"4",
 				"--use-tabs",
 				"false",
-			},
-		}
-
-		conform.formatters["clang-format"] = {
-			prepend_args = {
-				-- Pass all style options within a single string
-				"--style={BasedOnStyle: file, IndentWidth: 4, UseTab: Never}",
 			},
 		}
 
