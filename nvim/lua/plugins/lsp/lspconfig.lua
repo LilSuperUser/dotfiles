@@ -101,18 +101,25 @@ return {
 		vim.lsp.enable("lua_ls", true)
 
 		vim.lsp.config("emmet_language_server", {
+			cmd = { "emmet-language-server", "--stdio" },
 			filetypes = {
+				"astro",
 				"css",
 				"eruby",
 				"html",
-				"javascript",
+				"htmlangular",
+				"htmldjango",
 				"javascriptreact",
 				"less",
+				"pug",
 				"sass",
 				"scss",
-				"pug",
+				"svelte",
+				"templ",
 				"typescriptreact",
+				"vue",
 			},
+			root_dir = vim.fs.dirname(vim.fs.find({ ".git" }, { upward = true })[1]),
 			init_options = {
 				includeLanguages = {},
 				excludeLanguages = {},
