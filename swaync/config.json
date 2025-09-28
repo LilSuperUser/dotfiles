@@ -1,0 +1,143 @@
+{
+    "$schema": "/etc/xdg/swaync/configSchema.json",
+    "positionX": "right",
+    "positionY": "top",
+    "cssPriority": "user",
+
+    "control-center-width": 380,
+    "control-center-height": 1200,
+    "control-center-margin-top": 2,
+    "control-center-margin-bottom": 2,
+    "control-center-margin-right": 1,
+    "control-center-margin-left": 0,
+
+    "notification-window-width": 500,
+    "notification-icon-size": 42,
+    "notification-body-image-height": 150,
+    "notification-body-image-width": 200,
+
+    "timeout": 4,
+    "timeout-low": 2,
+    "timeout-critical": 6,
+
+    "fit-to-screen": true,
+    "keyboard-shortcuts": true,
+    "image-visibility": "when-available",
+    "relative-timestamps": true,
+    "transition-time": 200,
+
+    "hide-on-clear": false,
+    "hide-on-action": false,
+
+    "layer": "overlay",
+    "control-center-layer": "top",
+    "layer-shell": true,
+    "layer-shell-cover-screen": true,
+
+    "notification-2fa-action": true,
+    "notification-inline-replies": true,
+    "notification-grouping": true,
+
+    "script-fail-notify": true,
+    "text-empty": "Nothing here",
+    "scripts": {
+        "example-script": {
+            "exec": "echo 'Do something...'",
+            "urgency": "Normal"
+        },
+        "example-action-script": {
+            "exec": "echo 'Do something actionable!'",
+            "urgency": "Normal",
+            "run-on": "action"
+        }
+    },
+    "notification-visibility": {
+        "example-name": {
+            "state": "muted",
+            "urgency": "Low",
+            "app-name": "Spotify"
+        }
+    },
+    "widgets": [
+        "inhibitors",
+        "title",
+        "dnd",
+        "buttons-grid",
+        "volume",
+        "backlight",
+        "mpris",
+        "notifications"
+    ],
+    "widget-config": {
+        "notifications": {
+            "vexpand": true,
+            "max-height": 800
+        },
+        "inhibitors": {
+            "text": "Inhibitors",
+            "button-text": "Clear All",
+            "clear-all-button": true
+        },
+        "title": {
+            "text": "Notification Center",
+            "clear-all-button": true,
+            "button-text": "󰆴 Clear"
+        },
+        "dnd": {
+            "text": "Do Not Disturb"
+        },
+        "label": {
+            "max-lines": 1,
+            "text": "Notification Center"
+        },
+        "mpris": {
+            "image-size": 50,
+            "image-radius": 0,
+            "autohide": false,
+            "show-album-art": "always",
+            "loop-carousel": false
+        },
+        "volume": {
+            "label": "󰕾"
+        },
+        "backlight": {
+            "label": "󰃟"
+        },
+
+        "buttons-grid": {
+            "buttons-per-row": 5,
+            "actions": [
+                {
+                    "label": "󰐥",
+                    "command": "systemctl poweroff"
+                },
+                {
+                    "label": "󰜉",
+                    "command": "systemctl reboot"
+                },
+                {
+                    "label": "󰍃",
+                    "command": "hyprctl dispatch exit"
+                },
+                {
+                    "label": "󰌾",
+                    "command": "hyprlock"
+                },
+                {
+                    "label": "󰕾",
+                    "command": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
+                    "type": "toggle"
+                },
+                {
+                    "label": "󰍬",
+                    "command": "pactl set-source-mute @DEFAULT_SOURCE@ toggle",
+                    "type": "toggle"
+                },
+                {
+                    "label": "󰖩",
+                    "command": "nm-connection-editor"
+                }
+            ]
+        }
+    }
+}
