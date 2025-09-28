@@ -1,0 +1,130 @@
+@define-color cc-bg rgba(22, 22, 29, 0.88); /* less translucent */
+@define-color noti-border-color #3a3a4a;
+@define-color noti-bg rgba(17, 17, 27, 0.88);
+@define-color noti-bg-darker rgba(43, 43, 57, 0.88);
+@define-color noti-bg-hover rgba(27, 27, 43, 0.9);
+@define-color noti-bg-focus rgba(27, 27, 27, 0.92);
+@define-color noti-close-bg #dcd7ba;
+@define-color noti-close-bg-hover #f0e9c3;
+@define-color text-color #dcd7ba;
+@define-color text-color-disabled #828282;
+@define-color bg-selected #7e9cd8;
+@define-color border-green #76946a;
+@define-color red-base #c34043;
+@define-color red-hover #e46876;
+@define-color green-base #98bb6c;
+@define-color blue-base #7e9cd8;
+
+* {
+    font-family: "JetBrainsMono NFM SemiBold", monospace;
+    border-radius: 10px;
+    font-size: 1rem;
+}
+
+.control-center,
+.notification {
+    background: @cc-bg;
+    backdrop-filter: blur(20px) saturate(140%) contrast(1.05);
+    -webkit-backdrop-filter: blur(20px) saturate(140%) contrast(1.05);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+    margin: 6px;
+    padding: 6px;
+}
+
+.notification {
+    border-left: 3px solid @blue-base;
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+.notification:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.5);
+}
+
+.close-button {
+    background: transparent;
+    color: @red-base;
+    border: none;
+    font-size: 18px;
+    min-width: 22px;
+    min-height: 22px;
+    margin: 4px;
+    padding: 3px;
+    border-radius: 4px;
+    opacity: 1;
+    transition: all 0.15s ease;
+}
+.close-button:hover {
+    background: rgba(195, 64, 67, 0.15);
+    color: @red-hover;
+    transform: scale(1.1);
+}
+
+/* Action buttons */
+.notification-action,
+.inline-reply-button,
+.widget-buttons-grid > flowbox > flowboxchild > button {
+    background: rgba(30, 30, 40, 0.75);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 8px;
+    padding: 8px 14px;
+    font-size: 1.05rem;
+    transition: all 0.2s ease-in-out;
+}
+.notification-action:hover,
+.inline-reply-button:hover,
+.widget-buttons-grid > flowbox > flowboxchild > button:hover {
+    background: @blue-base;
+    color: @cc-bg;
+    box-shadow: 0 0 8px rgba(126, 156, 216, 0.6);
+}
+
+.summary {
+    font-size: 16px;
+    font-weight: 700;
+    color: @green-base;
+}
+.time {
+    font-size: 14px;
+    font-weight: 500;
+    color: @text-color;
+}
+.body {
+    font-size: 15px;
+    font-weight: 400;
+    color: @text-color;
+    opacity: 0.9;
+}
+
+.widget-title {
+    background: rgba(43, 43, 57, 0.85);
+    font-size: 1.4rem;
+    font-weight: 600;
+    border-radius: 8px;
+    padding: 8px 12px;
+    margin: 8px;
+    color: @blue-base;
+}
+.widget-title > button {
+    background: rgba(25, 25, 35, 0.8);
+    border-radius: 6px;
+    padding: 6px 12px;
+    font-size: 1.05rem;
+}
+.widget-title > button:hover {
+    background: @red-base;
+    color: @cc-bg;
+}
+
+.widget-buttons-grid {
+    background: rgba(43, 43, 57, 0.6);
+    border-radius: 12px;
+    padding: 10px;
+}
+.widget-buttons-grid > flowbox > flowboxchild > button:checked {
+    background: @green-base;
+    color: @cc-bg;
+    box-shadow: 0 0 10px rgba(152, 187, 108, 0.6);
+}
