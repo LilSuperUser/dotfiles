@@ -1,3 +1,4 @@
+typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
@@ -128,3 +129,7 @@ pokemon-colorscripts() {
         command pokemon-colorscripts "$@"
     fi
 }
+
+# Alias to change the source of input fas fas
+alias mic="pactl set-default-source alsa_input.pci-0000_06_00.6.HiFi__Mic2__source && notify-send '🎤 Input: Stereo Mic (Mic2) active'"
+alias monitor="pactl set-default-source alsa_output.pci-0000_06_00.6.HiFi__Headphones__sink.monitor && notify-send '🔁 Input: Monitor active'"
