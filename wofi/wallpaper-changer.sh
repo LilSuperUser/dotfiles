@@ -13,4 +13,4 @@ SELECTED=$(echo "$WALLPAPERS" | wofi --dmenu --prompt "Choose wallpaper:")
 
 [[ -z "$SELECTED" ]] && exit 0
 
-swww img "$SELECTED" --transition-type grow --transition-step 100 --transition-fps 120 --transition-duration 2
+swww img "$SELECTED" --transition-type fade --transition-step 100 --transition-fps 120 --transition-duration 2
