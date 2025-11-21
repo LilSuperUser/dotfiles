@@ -67,9 +67,9 @@ return {
 				map("n", "<leader>gu", gs.undo_stage_hunk, "Undo stage hunk")
 				map("n", "<leader>gp", gs.preview_hunk, "Preview hunk")
 
-				map("n", "<leader>gbl", function()
-					gs.blame_line({ full = true })
-				end, "Blame line")
+				-- map("n", "<leader>gbl", function()
+				-- 	gs.blame_line({ full = true })
+				-- end, "Blame line")
 
 				map("n", "<leader>gB", gs.toggle_current_line_blame, "Toggle line blame")
 				map("n", "<leader>gd", gs.diffthis, "Diff this")
