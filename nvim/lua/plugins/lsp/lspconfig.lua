@@ -1,13 +1,15 @@
 return {
 	"neovim/nvim-lspconfig",
-	event = { "BufReadPre", "BufNewFile", "BufNew" },
+	event = { "BufReadPre", "BufNewFile" },
 	dependencies = {
 		"hrsh7th/cmp-nvim-lsp",
 		{ "antosha417/nvim-lsp-file-operations", config = true },
 		{ "folke/neodev.nvim", opts = {} },
 	},
-	config = function()
+
+    config = function()
 		local cmp_nvim_lsp = require("cmp_nvim_lsp")
+        local capabilities = cmp_nvim_lsp.default_capabilities()
 
 		vim.api.nvim_create_autocmd("LspAttach", {
 			group = vim.api.nvim_create_augroup("UserLspConfig", {}),
@@ -81,6 +83,7 @@ return {
 
 		-- LSP Setup
 		vim.lsp.config("lua_ls", {
+            capabilities = capabilities,
 			settings = {
 				Lua = {
 					diagnostics = {
@@ -101,7 +104,7 @@ return {
 		vim.lsp.enable("lua_ls", true)
 
 		vim.lsp.config("emmet_language_server", {
-			cmd = { "emmet-language-server", "--stdio" },
+            capabilities = capabilities,
 			filetypes = {
 				"astro",
 				"css",
@@ -119,7 +122,7 @@ return {
 				"typescriptreact",
 				"vue",
 			},
-			root_dir = vim.fs.dirname(vim.fs.find({ ".git" }, { upward = true })[1]),
+			-- root_dir = vim.fs.dirname(vim.fs.find({ ".git" }, { upward = true })[1]),
 			init_options = {
 				includeLanguages = {},
 				excludeLanguages = {},
@@ -135,6 +138,7 @@ return {
 		vim.lsp.enable("emmet_language_server", true)
 
 		vim.lsp.config("denols", {
+            capabilities = capabilities,
 			root_dir = function(fname)
 				local util = require("lspconfig.util")
 				return util.root_pattern("deno.json", "deno.jsonc")(fname)
@@ -143,6 +147,7 @@ return {
 		vim.lsp.enable("denols", true)
 
 		vim.lsp.config("gopls", {
+            capabilities = capabilities,
 			settings = {
 				gopls = {
 					analyses = {
@@ -155,14 +160,15 @@ return {
 		})
 
 		vim.lsp.config("clangd", {
-			capabilities = {
-				offsetEncoding = { "utf-8", "utf-16" },
-				textDocument = {
-					completion = {
-						editsNearCursor = true,
-					},
-				},
-			},
+            capabilities = capabilities,
+			-- capabilities = {
+			-- 	offsetEncoding = { "utf-8", "utf-16" },
+			-- 	textDocument = {
+			-- 		completion = {
+			-- 			editsNearCursor = true,
+			-- 		},
+			-- 	},
+			-- },
 			cmd = {
 				"clangd",
 				"--background-index",
