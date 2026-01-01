@@ -6,9 +6,10 @@
     border-radius: 10px;
 }
 
+/* Waybar container */
 window#waybar {
     background-color: transparent;
-    color: #000;
+    color: #b0b6bc;
     transition-property: background-color;
     transition-duration: 0.5s;
 }
@@ -25,52 +26,58 @@ button {
 
 button:hover {
     background: inherit;
-    box-shadow: inset 0 -3px #ffffff;
+    box-shadow: inset 0 -3px #6e7378;
 }
 
+/* Remove loud red hover */
 #pulseaudio:hover {
-    background-color: #cd4f52;
+    background-color: #2a2d30;
 }
 
+/* Workspaces container */
 #workspaces {
-    background-color: #1e1e2e;
-    color: #cdd6f4;
+    background-color: #0f1012;
+    color: #8a8f95;
 }
 
+/* Workspace buttons */
 #workspaces button {
     padding: 0 6px;
-    background-color: transparent;
     margin: 0 2px;
     border-radius: 3px;
     background-color: transparent;
-    color: #a6adc8;
+    color: #6c7075;
     transition:
         background-color 0.2s,
         color 0.2s;
 }
 
 #workspaces button:hover {
-    background-color: #000000;
-    color: #ffffff;
+    background-color: #1c1e21;
+    color: #c7ccd1;
 }
 
+/* Active workspace — clear but cold */
 #workspaces button.active {
-    background-color: #c29c99;
-    color: #1e1e2e;
-    box-shadow: inset 0 -3px #000000;
+    background-color: #6e7378;
+    color: #0e0e10;
+    box-shadow: inset 0 -3px #0e0e10;
     font-weight: bold;
 }
 
+/* Urgent — still visible but not neon */
 #workspaces button.urgent {
-    background-color: #f53c3c;
-    color: #1e1e2e;
+    background-color: #3a3d42;
+    color: #e6e6e6;
 }
 
+/* Mode */
 #mode {
-    background-color: #64727d;
-    box-shadow: inset 0 -3px #ffffff;
+    background-color: #2a2d30;
+    box-shadow: inset 0 -3px #6e7378;
 }
 
+/* Common modules */
 #clock,
 #battery,
 #cpu,
@@ -89,10 +96,12 @@ button:hover {
 #power-profiles-daemon,
 #mpd {
     padding: 0 12px;
-    color: #ffffff;
+    color: #b0b6bc;
     margin: 2px;
+    background-color: #141417;
 }
 
+/* Margins */
 #window,
 #workspaces {
     margin: 0 4px;
@@ -106,31 +115,34 @@ button:hover {
     margin-right: 0;
 }
 
+/* Clock */
 #clock {
-    background: #1c0e28;
-    color: #ffffff;
+    background: #141417;
+    color: #c7ccd1;
 }
 
+/* Battery */
 #battery {
-    background-color: #1c0e28;
-    color: #ffffff;
+    background-color: #141417;
+    color: #c7ccd1;
 }
 
 #battery.charging,
 #battery.plugged {
-    color: #ffffff;
-    background-color: #925173;
+    background-color: #2e3236;
+    color: #e6e6e6;
 }
 
+/* Critical battery — keep alert but muted */
 @keyframes blink {
     to {
-        background-color: #ffffff;
-        color: #000000;
+        background-color: #3a3d42;
+        color: #ffffff;
     }
 }
 
 #battery.critical:not(.charging) {
-    background-color: #f53c3c;
+    background-color: #2a2d30;
     color: #ffffff;
     animation-name: blink;
     animation-duration: 0.5s;
@@ -139,69 +151,64 @@ button:hover {
     animation-direction: alternate;
 }
 
+/* Power profiles */
 #power-profiles-daemon {
     padding-right: 15px;
 }
 
 #power-profiles-daemon.performance {
-    background-color: #f53c3c;
+    background-color: #3a3d42;
     color: #ffffff;
 }
 
 #power-profiles-daemon.balanced {
-    background-color: #2980b9;
-    color: #ffffff;
+    background-color: #2a2d30;
+    color: #c7ccd1;
 }
 
 #power-profiles-daemon.power-saver {
-    background-color: #2ecc71;
-    color: #000000;
+    background-color: #1c1e21;
+    color: #9aa0a6;
 }
 
+/* Focus */
 label:focus {
-    background-color: #000000;
+    background-color: #1c1e21;
 }
 
-#cpu {
-    background-color: #1c0e28;
-    color: #ffffff;
-}
-
-#memory {
-    background-color: #1c0e28;
-}
-
-#network {
-    background-color: #1c0e28;
+/* CPU / Memory / Network */
+#cpu,
+#memory,
+#network,
+#pulseaudio {
+    background-color: #141417;
+    color: #b0b6bc;
 }
 
 #network.disconnected {
-    background-color: #f38ba8;
-    color: #1e1e2e;
-    background-color: #f53c3c;
-}
-
-#pulseaudio {
-    background-color: #1c0e28;
+    background-color: #2a2d30;
     color: #ffffff;
 }
 
+/* Audio muted */
 #pulseaudio.muted {
-    background-color: #0c0c24;
-    color: #7c9388;
+    background-color: #101113;
+    color: #6c7075;
 }
 
+/* Wireplumber */
 #wireplumber {
-    background-color: #fff0f5;
-    color: #000000;
+    background-color: #141417;
+    color: #b0b6bc;
 }
 
 #wireplumber.muted {
-    background-color: #f53c3c;
+    background-color: #2a2d30;
 }
 
+/* Tray */
 #tray {
-    background-color: #000000;
+    background-color: #0f1012;
 }
 
 #tray > .passive {
@@ -210,5 +217,5 @@ label:focus {
 
 #tray > .needs-attention {
     -gtk-icon-effect: highlight;
-    background-color: #eb4d4b;
+    background-color: #3a3d42;
 }
