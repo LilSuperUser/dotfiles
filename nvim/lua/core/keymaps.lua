@@ -74,7 +74,7 @@ vim.keymap.set("n", "<leader>cn", function()
 end, { noremap = true, desc = "Clear notification" })
 
 -- Alias for suda.vim plugin
-vim.cmd [[cnoreabbrev W SudaWrite]]
+vim.cmd([[cnoreabbrev W SudaWrite]])
 -----------------------------------------------------
 -------------- Clipboard Stuff ----------------------
 -----------------------------------------------------
