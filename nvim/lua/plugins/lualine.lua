@@ -5,6 +5,7 @@ return {
 	config = function()
 		local lualine = require("lualine")
 		local lazy_status = require("lazy.status")
+		local harpoon_files = require("harpoon_files")
 
 		local colors = {
 			black = "#092236",
@@ -58,7 +59,7 @@ return {
 			sections = {
 				lualine_a = { "mode" },
 				lualine_b = { "branch", "diff" },
-				lualine_c = { "filename" },
+				lualine_c = { "filename", {harpoon_files.lualine_component} },
 				lualine_x = { "diagnostics", "encoding", "fileformat", "filetype" },
 				lualine_y = { "progress", selection_count },
 				lualine_z = {
@@ -74,6 +75,7 @@ return {
 				lualine_a = {},
 				lualine_b = {},
 				lualine_c = { "filename" },
+				lualine_d = { harpoon_files.lualine_component },
 				lualine_x = { "location" },
 				lualine_y = {},
 				lualine_z = {},

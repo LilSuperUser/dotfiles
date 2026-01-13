@@ -5,14 +5,12 @@ return {
 	build = ":TSUpdate",
 	config = function()
 		local ts = require("nvim-treesitter.configs")
-
 		ts.setup({
 			highlight = {
 				enable = true,
 			},
 			-- enable indentation
 			indent = { enable = true },
-
 			ensure_installed = {
 				"c",
 				"cpp",
@@ -27,7 +25,6 @@ return {
 				"markdown",
 				"markdown_inline",
 			},
-
 			incremental_selection = {
 				enable = true,
 				keymaps = {
