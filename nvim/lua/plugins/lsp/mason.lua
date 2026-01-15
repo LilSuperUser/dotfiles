@@ -1,20 +1,13 @@
 return {
 	"williamboman/mason.nvim",
 	lazy = false,
-
 	dependencies = {
 		"williamboman/mason-lspconfig.nvim",
 		"WhoIsSethDaniel/mason-tool-installer.nvim",
-		"hrsh7th/cmp-nvim-lsp",
-		"neovim/nvim-lspconfig",
 	},
-
 	config = function()
-		local mason = require("mason")
-		local mason_lspconfig = require("mason-lspconfig")
-		local mason_tool_installer = require("mason-tool-installer")
-
-		mason.setup({
+		-- Setup Mason first
+		require("mason").setup({
 			ui = {
 				icons = {
 					package_installed = "✓",
@@ -24,30 +17,35 @@ return {
 			},
 		})
 
-		mason_lspconfig.setup({
+		-- Setup mason-lspconfig with automatic_enable
+		-- This will automatically call vim.lsp.enable() for installed servers
+		require("mason-lspconfig").setup({
 			ensure_installed = {
-				"lua_ls",
-				"gopls",
-				"eslint",
-				"marksman",
-				"jsonls",
+				"clangd",
+                "neocmake",
+				"rust_analyzer",
+                "asm_lsp",
+				"bashls",
 				"html",
 				"cssls",
 				"tailwindcss",
-				"biome",
 				"emmet_language_server",
-				"clangd",
-				"rust_analyzer",
+				"lua_ls",
+				"jsonls",
 			},
+			automatic_enable = true,
 		})
 
-		mason_tool_installer.setup({
+		-- Setup non-LSP tools
+		require("mason-tool-installer").setup({
 			ensure_installed = {
-				"prettier",
-				"stylua",
-				"isort",
-				"denols",
 				"codelldb",
+				"debugpy",
+				"bash-debug-adapter",
+				"prettier",
+				"asmfmt",
+				"stylua",
+				"black",
 			},
 		})
 	end,
