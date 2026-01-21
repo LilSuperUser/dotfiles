@@ -108,6 +108,20 @@ return {
 			},
 		})
 
+		vim.lsp.config("pyright", {
+			cmd = { "pyright-langserver", "--stdio" },
+			filetypes = { "python" },
+			settings = {
+				python = {
+					analysis = {
+						autoSearchPaths = true,
+						diagnosticMode = "workspace",
+						useLibraryCodeForTypes = true,
+					},
+				},
+			},
+		})
+
 		vim.lsp.config("asm_lsp", {})
 
 		vim.lsp.config("bashls", {
@@ -120,6 +134,23 @@ return {
 		vim.lsp.config("cssls", {})
 
 		vim.lsp.config("tailwindcss", {})
+
+		vim.lsp.config("denols", {
+			cmd = { "deno", "lsp" },
+			filetypes = {
+				"javascript",
+				"javascriptreact",
+				"javascript.jsx",
+				"typescript",
+				"typescriptreact",
+				"typescript.tsx",
+			},
+			init_options = {
+				enable = true,
+				lint = true,
+				unstable = true,
+			},
+		})
 
 		vim.lsp.config("emmet_language_server", {
 			filetypes = {

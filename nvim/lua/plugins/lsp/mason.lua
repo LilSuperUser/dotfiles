@@ -22,13 +22,15 @@ return {
 		require("mason-lspconfig").setup({
 			ensure_installed = {
 				"clangd",
-                "neocmake",
+				"neocmake",
 				"rust_analyzer",
-                "asm_lsp",
+				"pyright",
+				"asm_lsp",
 				"bashls",
 				"html",
 				"cssls",
 				"tailwindcss",
+				"denols",
 				"emmet_language_server",
 				"lua_ls",
 				"jsonls",
@@ -46,6 +48,7 @@ return {
 				"asmfmt",
 				"stylua",
 				"black",
+				"biome",
 			},
 		})
 	end,
