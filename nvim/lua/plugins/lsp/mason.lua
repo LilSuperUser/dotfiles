@@ -34,6 +34,7 @@ return {
 				"emmet_language_server",
 				"lua_ls",
 				"jsonls",
+                "hyprls",
 			},
 			automatic_enable = true,
 		})

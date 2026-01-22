@@ -185,6 +185,7 @@ return {
 
 		vim.lsp.config("jsonls", {})
 
+		vim.lsp.config("hyprls", {})
 		-- Mason-lspconfig automatically calls vim.lsp.enable() for installed servers
 		-- No need to manually enable each server
 	end,
