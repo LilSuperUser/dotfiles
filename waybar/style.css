@@ -9,7 +9,7 @@
 /* Waybar container */
 window#waybar {
     background-color: transparent;
-    color: #b0b6bc;
+    color: #000;
     transition-property: background-color;
     transition-duration: 0.5s;
 }
