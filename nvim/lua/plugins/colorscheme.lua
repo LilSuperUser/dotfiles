@@ -270,4 +270,34 @@ return {
 			})
 		end,
 	},
+    --NOTE:: Everforest
+    {
+        "sainnhe/everforest",
+        lazy = false,
+        config = function()
+        -- Optionally configure and load the colorscheme
+        -- directly inside the plugin declaration.
+        vim.g.everforest_enable_italic = true
+        vim.cmd.colorscheme('everforest')
+    end,
+    },
+    --NOTE : Tokyodark
+    {
+        "tiagovla/tokyodark.nvim",
+        lazy= false,
+        opts = {},
+        config = function(_, opts)
+        require("tokyodark").setup(opts) -- calling setup is optional
+        vim.cmd.colorscheme('tokyodark')
+    end,
+    },
+    --NOTE : Moonfly
+    {
+        "bluz71/vim-moonfly-colors",
+        name = "moonfly",
+        lazy = false,
+        config = function ()
+        vim.cmd.colorscheme('moonfly')
+    end,
+    }
 }
