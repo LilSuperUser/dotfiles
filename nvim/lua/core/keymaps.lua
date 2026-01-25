@@ -51,6 +51,12 @@ vim.keymap.set("n", "<leader>X", "<cmd>!chmod +x %<CR>")
 -- Executes a shell script directly from nvim (make it executable and execute it)
 vim.keymap.set("n", "<leader>XX", "<cmd>!chmod +x % && ./%<CR>")
 
+-- Build the project in the build directory
+vim.keymap.set("n", "<leader>mk", "<cmd>!cd build && make clean && make<CR>")
+
+-- Build the project and run tests in build directory
+vim.keymap.set("n", "<leader>rt", "<cmd>!cd build && make clean && make && ctest<CR>")
+
 -- Copy file path to the clipboard
 vim.keymap.set("n", "<leader>fp", function()
 	local filePath = vim.fn.expand("%:~")
