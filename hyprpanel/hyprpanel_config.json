@@ -116,7 +116,7 @@
         "volume",
         "microphone",
         "network",
-        "bluetooth",
+        "cpu",
         "battery",
         "clock",
         "systray",
@@ -194,5 +194,7 @@
   "bar.customModules.ram.label": true,
   "theme.bar.buttons.modules.ram.enableBorder": false,
   "bar.customModules.ram.labelType": "percentage",
-  "theme.bar.buttons.modules.microphone.spacing": "0.1em"
+  "theme.bar.buttons.modules.microphone.spacing": "0.1em",
+  "theme.osd.scaling": 90,
+  "theme.bar.buttons.modules.cpu.spacing": "0.2em"
 }
