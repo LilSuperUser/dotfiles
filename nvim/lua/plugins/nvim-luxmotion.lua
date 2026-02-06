@@ -13,8 +13,9 @@ return {
 				enabled = true,
 			},
 			performance = { enabled = false },
+
 			keymaps = {
-				cursor = true,
+				cursor = false,
 				scroll = true,
 			},
 		})
