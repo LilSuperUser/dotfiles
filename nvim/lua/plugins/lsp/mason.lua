@@ -29,8 +29,8 @@ return {
 				"bashls",
 				"html",
 				"cssls",
+                "ts_ls",
 				"tailwindcss",
-				"denols",
 				"emmet_language_server",
 				"lua_ls",
 				"jsonls",
@@ -49,7 +49,6 @@ return {
 				"asmfmt",
 				"stylua",
 				"black",
-				"biome",
 			},
 		})
 	end,

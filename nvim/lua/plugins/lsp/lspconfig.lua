@@ -135,6 +135,7 @@ return {
 
 		vim.lsp.config("tailwindcss", {})
 
+		-- use denols (only) for deno projects
 		vim.lsp.config("denols", {
 			cmd = { "deno", "lsp" },
 			filetypes = {
@@ -145,11 +146,26 @@ return {
 				"typescriptreact",
 				"typescript.tsx",
 			},
+			root_markers = { "deno.json", "deno.jsonc" },
 			init_options = {
 				enable = true,
 				lint = true,
 				unstable = true,
 			},
+		})
+
+		-- Standard TS/JS for Node projects (package.json, tsconfig.json, etc.)
+		vim.lsp.config("ts_ls", {
+			cmd = { "typescript-language-server", "--stdio" },
+			filetypes = {
+				"javascript",
+				"javascriptreact",
+				"javascript.jsx",
+				"typescript",
+				"typescriptreact",
+				"typescript.tsx",
+			},
+			root_markers = { "package.json", "tsconfig.json", "jsconfig.json" },
 		})
 
 		vim.lsp.config("emmet_language_server", {
