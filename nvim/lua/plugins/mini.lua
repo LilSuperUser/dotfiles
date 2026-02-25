@@ -7,6 +7,17 @@ return {
 		"echasnovski/mini.files",
 		config = function()
 			local MiniFiles = require("mini.files")
+
+			local show_dotfiles = false
+
+			local filter_hide = function(entry)
+				return not vim.startswith(entry.name, ".")
+			end
+
+			local filter_show = function(_)
+				return true
+			end
+
 			MiniFiles.setup({
 				mappings = {
 					close = "q",
@@ -18,14 +29,27 @@ return {
 					permanent_delete = false,
 					use_as_default_explorer = false,
 				},
+				content = {
+					filter = filter_hide,
+				},
 			})
 
 			-- Keymaps for minifiles
 			vim.keymap.set("n", "<leader>e", "<CMD>lua MiniFiles.open()<CR>", { desc = "Open MiniFiles explorer" })
+
 			vim.keymap.set("n", "<leader>E", function()
 				MiniFiles.open(vim.api.nvim_buf_get_name(0), false)
 				MiniFiles.reveal_cwd()
 			end, { desc = "Open MiniFiles explorer into currently opened file" })
+
+			vim.keymap.set("n", "<leader>H", function()
+				show_dotfiles = not show_dotfiles
+				MiniFiles.refresh({
+					content = {
+						filter = show_dotfiles and filter_show or filter_hide,
+					},
+				})
+			end, { desc = "Toggle hidden files" })
 		end,
 	},
 
