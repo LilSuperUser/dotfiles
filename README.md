@@ -60,6 +60,18 @@ how a keymap works?
 | Function | Keymap |
 | -------------- | --------------- |
 | Wrap with abbreviation | <space>xe |
+| Close the current split window | <space>sx |
+| Make splits equal size | <space>se |
+| Split window horizontally | <space>sh |
+| Split window vertically | <space>sv |
+| Move to previous tab | <space>tp |
+| Move to next tab | <space>tn |
+| Close a tab | <space>tx |
+| Open current tab in a new tab | <space>t0 |
+| Open a new tab | <space>to |
+| Dismiss all notification windows currently displayed | <space>cn |
+| Toggle LSP diagnostics visibility | <space>lx |
+| Copy the path of the file in the clipboard | <space>fp |
 
 #### Editor
 | Function | Keymap |
@@ -99,6 +111,5 @@ how a keymap works?
 | Harpoon quick menu | <space>hl |
 | Add file to Harpoon | <space>ha |
 
-
 there are also variations to some commands
-fr eg: Harpoon to file 1,2,3,4 and corresponding remove file cmds
+for eg: Harpoon to file 1,2,3,4 and corresponding remove file cmds
