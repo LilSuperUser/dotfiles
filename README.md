@@ -2,114 +2,215 @@
 ## Nvim Dotfiles
 ### Keymaps
 > _even though keymaps are available and very easy to understand after installing the configuration, here's the keymaps for the lazy (pun intended) crowd_
+
 how a keymap works?
-<space>mf for example means pressing the leader key i.e. space (default) then press m and then f
+`<space>mf` for example means pressing the leader key i.e. space (default) then press m and then f
 
-#### Formatting
+---
+
+### General
 | Function | Keymap |
 | -------------- | --------------- |
-| Format whole file or range | <space>mf |
+| Move lines down in visual selection | `J` |
+| Move lines up in visual selection | `K` |
+| Join current line with one below | `J` |
+| Scroll up (cursor centered) | `<C-d>` |
+| Scroll down (cursor centered) | `<C-u>` |
+| Next search match (centered) | `n` |
+| Previous search match (centered) | `N` |
+| Clear search highlight | `<leader>C` |
+| Indent selection left (keep selection) | `<` |
+| Indent selection right (keep selection) | `>` |
+| Format current buffer with LSP | `<leader>f` |
+| Replace current word globally | `<leader>r` |
+| Make current file executable | `<leader>X` |
+| Execute current file | `<leader>XX` |
+| Build project in build directory | `<leader>mk` |
+| Build and run tests | `<leader>rt` |
+| Copy file path to clipboard | `<leader>fp` |
+| Toggle LSP diagnostics | `<leader>lx` |
+| Buffer Local Keymaps (which-key) | `<leader>?` |
 
-#### Snacks
+---
+
+### Clipboard
 | Function | Keymap |
 | -------------- | --------------- |
-| TODO/Fix/FIXME | <space>pT |
-| Look through ToDo comments | <space>pt |
-| Disable Indentated Lines | <space>ic |
-| Enable Indentated Lines | <space>io |
-| Help Pages | <space>vh |
-| Pick & Switch Git Branches | <space>gbr |
-| Pick Color Schemes | <space>th |
-| Search Man Pages | <space>pm |
-| Search Registers | <space>p' |
-| Search Keymaps | <space>pk |
-| Grep a visual selection | <space>pvs |
-| Grep Something | <space>pw |
-| Find nvim config files | <space>pc |
-| Find Files | <space>pc |
-| Close Buffer | <space>dB |
-| Fast Rename Current File | <space>R |
-| Git diff (hunks) | <space>gd |
-| Lazygit Logs | <space>gl |
-| Lazygit | <space>lg |
+| Paste without replacing clipboard | `<leader>P` (visual) |
+| Paste without copying selection | `p` (visual) |
+| Delete without yanking | `x` |
+| Delete to black hole (char) | `<leader>Ds` |
+| Delete to black hole (line) | `<leader>Dl` |
 
-#### Linting
+---
+
+### Tabs
 | Function | Keymap |
 | -------------- | --------------- |
-| Trigger linting for current file | <space>l |
+| Open a new tab | `<leader>to` |
+| Open current file in new tab | `<leader>tO` |
+| Close current tab | `<leader>tx` |
+| Move to next tab | `<leader>tn` |
+| Move to previous tab | `<leader>tp` |
 
-#### Which-Key
+---
+
+### Splits
 | Function | Keymap |
 | -------------- | --------------- |
-| Buffer Local Keymaps | <space>? |
+| Split window vertically | `<leader>sv` |
+| Split window horizontally | `<leader>sh` |
+| Make splits equal size | `<leader>se` |
+| Close current split | `<leader>sx` |
+| Move to left split | `<C-h>` |
+| Move to below split | `<C-j>` |
+| Move to up split | `<C-k>` |
+| Move to right split | `<C-l>` |
 
-#### Color-Picker
+---
+
+### Snacks
 | Function | Keymap |
 | -------------- | --------------- |
-| Toggle color highlighter | <space>cc |
+| TODO/Fix/FIXME | `<space>pT` |
+| Look through ToDo comments | `<space>pt` |
+| Disable Indentated Lines | `<space>ic` |
+| Enable Indentated Lines | `<space>io` |
+| Help Pages | `<space>vh` |
+| Pick & Switch Git Branches | `<space>gbr` |
+| Pick Color Schemes | `<space>th` |
+| Search Man Pages | `<space>pm` |
+| Search Registers | `<space>p'` |
+| Search Keymaps | `<space>pk` |
+| Grep a visual selection | `<space>pvs` |
+| Grep Something | `<space>pw` |
+| Find nvim config files | `<space>pc` |
+| Find Files | `<space>pf` |
+| Close Buffer | `<space>dB` |
+| Fast Rename Current File | `<space>R` |
+| Git diff (hunks) | `<space>gd` |
+| Lazygit Logs | `<space>gl` |
+| Lazygit | `<space>lg` |
 
-#### Mini
+---
+
+### Linting
 | Function | Keymap |
 | -------------- | --------------- |
-| Trim, Clear, Highlight | <space>tc |
-| Trailing whitespace trimmed | <space>ts |
-| Toggle Hidden Files | <space>H |
-| Open Mini-File Explorer | <space>E |
+| Trigger linting for current file | `<space>l` |
 
-#### Misc
+---
+
+### Mini (Files/Comment/Trailspace)
 | Function | Keymap |
 | -------------- | --------------- |
-| Wrap with abbreviation | <space>xe |
-| Close the current split window | <space>sx |
-| Make splits equal size | <space>se |
-| Split window horizontally | <space>sh |
-| Split window vertically | <space>sv |
-| Move to previous tab | <space>tp |
-| Move to next tab | <space>tn |
-| Close a tab | <space>tx |
-| Open current tab in a new tab | <space>t0 |
-| Open a new tab | <space>to |
-| Dismiss all notification windows currently displayed | <space>cn |
-| Toggle LSP diagnostics visibility | <space>lx |
-| Copy the path of the file in the clipboard | <space>fp |
+| Open MiniFiles explorer | `<leader>e` |
+| Open MiniFiles at current file | `<leader>E` |
+| Toggle hidden files | `<leader>H` |
+| Trim trailing whitespace | `<leader>ts` |
+| Clear trailing whitespace highlight | `<leader>tc` |
 
-#### Editor
+---
+
+### Telescope
 | Function | Keymap |
 | -------------- | --------------- |
-| Toggle Undo Tree | <space>u |
+| Fuzzy find recent files | `<leader>pr` |
+| Fuzzy find notifications | `<leader>pn` |
+| Find word under cursor | `<leader>pWs` |
+| Switch themes | `<leader>ths` |
 
-#### Git CMDs
+---
+
+### Harpoon
 | Function | Keymap |
 | -------------- | --------------- |
-| LazyGit | <space>gwc |
-| Create Git Worktree Branches | <space>gwt |
-| Toggle Git Blame | <space>gbl |
-| Git diff (hunks) (Snacks) | <space>gd |
-| Lazygit Logs (Snacks) | <space>gl |
-| Lazygit (Snacks) | <space>lg |
-| Pick & Switch Git Branches | <space>gbr |
+| Add file to harpoon | `<leader>ha` |
+| Toggle harpoon quick menu | `<leader>hl` |
+| Jump to file 1 | `<leader>1` |
+| Jump to file 2 | `<leader>2` |
+| Jump to file 3 | `<leader>3` |
+| Jump to file 4 | `<leader>4` |
+| Remove file 1 | `<leader>d1` |
+| Remove file 2 | `<leader>d2` |
+| Remove file 3 | `<leader>d3` |
+| Remove file 4 | `<leader>d4` |
 
-#### Multi-Cursor
+---
+
+### Git (Fugitive)
 | Function | Keymap |
 | -------------- | --------------- |
-| Line Skip Cursor (+1) | <space>j |
-| Line Skip Cursor (-1) | <space>k |
+| Open Git status | `<leader>gg` |
+| Git push (fugitive buffer) | `P` |
+| Git pull with rebase (fugitive buffer) | `p` |
+| Set upstream (fugitive buffer) | `t` |
 
-#### Telescope
+---
+
+### Git (Gitsigns)
 | Function | Keymap |
 | -------------- | --------------- |
-| Telescope Themes | <space>ths |
-| Find Connected Words under Cursor | <space>pWs |
-| Fuzzy Find Notifications | <space>pn |
-| Fuzzy Find recent files | <space>pr |
+| Next hunk | `]h` |
+| Previous hunk | `[h` |
+| Stage hunk | `<leader>gs` |
+| Reset hunk | `<leader>gr` |
+| Stage buffer | `<leader>gS` |
+| Reset buffer | `<leader>gR` |
+| Undo stage hunk | `<leader>gu` |
+| Preview hunk | `<leader>gp` |
+| Toggle line blame | `<leader>gB` |
+| Diff this | `<leader>gd` |
+| Diff this ~ | `<leader>gD` |
 
-#### Harpoon
+---
+
+### Git (Worktree)
 | Function | Keymap |
 | -------------- | --------------- |
-| Harpoon Remove File | <space>d4 |
-| Harpoon to File 1 | <space>4 |
-| Harpoon quick menu | <space>hl |
-| Add file to Harpoon | <space>ha |
+| List git worktrees | `<leader>gwt` |
+| Create git worktree | `<leader>gwc` |
 
-there are also variations to some commands
-for eg: Harpoon to file 1,2,3,4 and corresponding remove file cmds
+---
+
+### Trouble
+| Function | Keymap |
+| -------------- | --------------- |
+| Workspace diagnostics | `<leader>xw` |
+| Document diagnostics | `<leader>xd` |
+| Symbols/todos | `<leader>xt` |
+| Location list | `<leader>xl` |
+| Quickfix list | `<leader>xq` |
+
+---
+
+### Multi-Cursor
+| Function | Keymap |
+| -------------- | --------------- |
+| Line Skip Cursor (+1) | `<space>j` |
+| Line Skip Cursor (-1) | `<space>k` |
+
+---
+
+### Color-Picker
+| Function | Keymap |
+| -------------- | --------------- |
+| Toggle color highlighter | `<leader>cc` |
+
+---
+
+### LSP Commands
+| Function | Keymap |
+| -------------- | --------------- |
+| Show LSP info | `:LspInfo` |
+| Stop LSP clients | `:LspStop` |
+| Start LSP | `:LspStart` |
+| Restart LSP | `:LspRestart` |
+
+---
+
+### Misc
+| Function | Keymap |
+| -------------- | --------------- |
+| Wrap with abbreviation | `<leader>xe` |
+| Clear notifications | `<leader>cn` |
