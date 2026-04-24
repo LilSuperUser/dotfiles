@@ -22,6 +22,7 @@ how a keymap works?
 | Indent selection left (keep selection) | `<` | v |
 | Indent selection right (keep selection) | `>` | v |
 | Format current buffer with LSP | `<leader>f` | n |
+| Format whole file or range (conform) | `<leader>mf` | n/v |
 | Replace current word globally | `<leader>r` | n |
 | Make current file executable | `<leader>X` | n |
 | Execute current file | `<leader>XX` | n |
@@ -74,6 +75,8 @@ how a keymap works?
 | -------------- | --------------- | ----- |
 | TODO/Fix/FIXME | `<space>pT` | n |
 | Look through ToDo comments | `<space>pt` | n |
+| Next todo comment | `]t` | n |
+| Previous todo comment | `[t` | n |
 | Disable Indentated Lines | `<space>ic` | n |
 | Enable Indentated Lines | `<space>io` | n |
 | Help Pages | `<space>vh` | n |
@@ -153,8 +156,8 @@ how a keymap works?
 | -------------- | --------------- | ----- |
 | Next hunk | `]h` | n |
 | Previous hunk | `[h` | n |
-| Stage hunk | `<leader>gs` | n |
-| Reset hunk | `<leader>gr` | n |
+| Stage hunk | `<leader>gs` | n/v |
+| Reset hunk | `<leader>gr` | n/v |
 | Stage buffer | `<leader>gS` | n |
 | Reset buffer | `<leader>gR` | n |
 | Undo stage hunk | `<leader>gu` | n |
@@ -162,6 +165,7 @@ how a keymap works?
 | Toggle line blame | `<leader>gB` | n |
 | Diff this | `<leader>gd` | n |
 | Diff this ~ | `<leader>gD` | n |
+| Select hunk | `ih` | o/x |
 
 ---
 
@@ -206,6 +210,48 @@ how a keymap works?
 | Stop LSP clients | `:LspStop` | n |
 | Start LSP | `:LspStart` | n |
 | Restart LSP | `:LspRestart` | n |
+| Show LSP references | `gR` | n |
+| Go to declaration | `gD` | n |
+| Show LSP definitions | `gd` | n |
+| Show LSP implementations | `gi` | n |
+| Show LSP type definitions | `gt` | n |
+| Code actions | `<leader>vca` | n/v |
+| Smart rename | `<leader>rn` | n |
+| Show buffer diagnostics | `<leader>D` | n |
+| Show line diagnostics | `<leader>d` | n |
+| Show documentation (hover) | `K` | n |
+| Restart LSP (buffer) | `<leader>rs` | n |
+| Signature help (insert mode) | `<C-h>` | i |
+
+---
+
+### Clasp (Auto-pairing)
+| Function | Keymap | Mode |
+| -------------- | --------------- | ----- |
+| Wrap next (forward) | `<C-;>` | n/i |
+| Wrap previous (backward) | `<C-'>` | n/i |
+| Undo in insert mode | `<C-u>` | i |
+
+---
+
+### Oil (File Explorer)
+| Function | Keymap | Mode |
+| -------------- | --------------- | ----- |
+| Open parent directory | `-` | n |
+| Open parent directory (floating) | `<leader>-` | n |
+| Toggle hidden files | `g.` | n |
+| Show help | `g?` | n |
+| Refresh | `<C-r>` | n |
+| Close | `q` | n |
+
+---
+
+### Folding (Ufo)
+| Function | Keymap | Mode |
+| -------------- | --------------- | ----- |
+| Open all folds | `zR` | n |
+| Close all folds | `zM` | n |
+| Fold / Unfold at cursor | `za` | n |
 
 ---
 
@@ -214,3 +260,4 @@ how a keymap works?
 | -------------- | --------------- | ----- |
 | Wrap with abbreviation | `<leader>xe` | n/v |
 | Clear notifications | `<leader>cn` | n |
+| Toggle undo-tree | `<leader>u` | n |
