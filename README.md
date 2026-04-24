@@ -8,6 +8,31 @@ how a keymap works?
 
 ---
 
+## Table of Contents
+
+- [General](#general)
+- [Clipboard](#clipboard)
+- [Tabs](#tabs)
+- [Splits](#splits)
+- [Snacks](#snacks)
+- [Linting](#linting)
+- [Mini](#mini)
+- [Telescope](#telescope)
+- [Harpoon](#harpoon)
+- [Git (Fugitive)](#git-fugitive)
+- [Git (Gitsigns)](#git-gitsigns)
+- [Git (Worktree)](#git-worktree)
+- [Trouble](#trouble)
+- [Multi-Cursor](#multi-cursor)
+- [Color-Picker](#color-picker)
+- [LSP Commands](#lsp-commands)
+- [Clasp](#clasp)
+- [Oil](#oil)
+- [Folding (Ufo)](#folding-ufo)
+- [Misc](#misc)
+
+---
+
 ### General
 | Function | Keymap | Mode |
 | -------------- | --------------- | ----- |
