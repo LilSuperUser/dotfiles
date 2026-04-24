@@ -9,208 +9,208 @@ how a keymap works?
 ---
 
 ### General
-| Function | Keymap |
-| -------------- | --------------- |
-| Move lines down in visual selection | `J` |
-| Move lines up in visual selection | `K` |
-| Join current line with one below | `J` |
-| Scroll up (cursor centered) | `<C-d>` |
-| Scroll down (cursor centered) | `<C-u>` |
-| Next search match (centered) | `n` |
-| Previous search match (centered) | `N` |
-| Clear search highlight | `<leader>C` |
-| Indent selection left (keep selection) | `<` |
-| Indent selection right (keep selection) | `>` |
-| Format current buffer with LSP | `<leader>f` |
-| Replace current word globally | `<leader>r` |
-| Make current file executable | `<leader>X` |
-| Execute current file | `<leader>XX` |
-| Build project in build directory | `<leader>mk` |
-| Build and run tests | `<leader>rt` |
-| Copy file path to clipboard | `<leader>fp` |
-| Toggle LSP diagnostics | `<leader>lx` |
-| Buffer Local Keymaps (which-key) | `<leader>?` |
+| Function | Keymap | Mode |
+| -------------- | --------------- | ----- |
+| Move lines down in visual selection | `J` | v |
+| Move lines up in visual selection | `K` | v |
+| Join current line with one below | `J` | n |
+| Scroll up (cursor centered) | `<C-d>` | n |
+| Scroll down (cursor centered) | `<C-u>` | n |
+| Next search match (centered) | `n` | n |
+| Previous search match (centered) | `N` | n |
+| Clear search highlight | `<leader>C` | n |
+| Indent selection left (keep selection) | `<` | v |
+| Indent selection right (keep selection) | `>` | v |
+| Format current buffer with LSP | `<leader>f` | n |
+| Replace current word globally | `<leader>r` | n |
+| Make current file executable | `<leader>X` | n |
+| Execute current file | `<leader>XX` | n |
+| Build project in build directory | `<leader>mk` | n |
+| Build and run tests | `<leader>rt` | n |
+| Copy file path to clipboard | `<leader>fp` | n |
+| Toggle LSP diagnostics | `<leader>lx` | n |
+| Buffer Local Keymaps (which-key) | `<leader>?` | n |
 
 ---
 
 ### Clipboard
-| Function | Keymap |
-| -------------- | --------------- |
-| Paste without replacing clipboard | `<leader>P` (visual) |
-| Paste without copying selection | `p` (visual) |
-| Delete without yanking | `x` |
-| Delete to black hole (char) | `<leader>Ds` |
-| Delete to black hole (line) | `<leader>Dl` |
+| Function | Keymap | Mode |
+| -------------- | --------------- | ----- |
+| Paste without replacing clipboard | `<leader>P` | x |
+| Paste without copying selection | `p` | v |
+| Delete without yanking | `x` | n |
+| Delete to black hole (char) | `<leader>Ds` | n/v |
+| Delete to black hole (line) | `<leader>Dl` | n/v |
 
 ---
 
 ### Tabs
-| Function | Keymap |
-| -------------- | --------------- |
-| Open a new tab | `<leader>to` |
-| Open current file in new tab | `<leader>tO` |
-| Close current tab | `<leader>tx` |
-| Move to next tab | `<leader>tn` |
-| Move to previous tab | `<leader>tp` |
+| Function | Keymap | Mode |
+| -------------- | --------------- | ----- |
+| Open a new tab | `<leader>to` | n |
+| Open current file in new tab | `<leader>tO` | n |
+| Close current tab | `<leader>tx` | n |
+| Move to next tab | `<leader>tn` | n |
+| Move to previous tab | `<leader>tp` | n |
 
 ---
 
 ### Splits
-| Function | Keymap |
-| -------------- | --------------- |
-| Split window vertically | `<leader>sv` |
-| Split window horizontally | `<leader>sh` |
-| Make splits equal size | `<leader>se` |
-| Close current split | `<leader>sx` |
-| Move to left split | `<C-h>` |
-| Move to below split | `<C-j>` |
-| Move to up split | `<C-k>` |
-| Move to right split | `<C-l>` |
+| Function | Keymap | Mode |
+| -------------- | --------------- | ----- |
+| Split window vertically | `<leader>sv` | n |
+| Split window horizontally | `<leader>sh` | n |
+| Make splits equal size | `<leader>se` | n |
+| Close current split | `<leader>sx` | n |
+| Move to left split | `<C-h>` | n |
+| Move to below split | `<C-j>` | n |
+| Move to up split | `<C-k>` | n |
+| Move to right split | `<C-l>` | n |
 
 ---
 
 ### Snacks
-| Function | Keymap |
-| -------------- | --------------- |
-| TODO/Fix/FIXME | `<space>pT` |
-| Look through ToDo comments | `<space>pt` |
-| Disable Indentated Lines | `<space>ic` |
-| Enable Indentated Lines | `<space>io` |
-| Help Pages | `<space>vh` |
-| Pick & Switch Git Branches | `<space>gbr` |
-| Pick Color Schemes | `<space>th` |
-| Search Man Pages | `<space>pm` |
-| Search Registers | `<space>p'` |
-| Search Keymaps | `<space>pk` |
-| Grep a visual selection | `<space>pvs` |
-| Grep Something | `<space>pw` |
-| Find nvim config files | `<space>pc` |
-| Find Files | `<space>pf` |
-| Close Buffer | `<space>dB` |
-| Fast Rename Current File | `<space>R` |
-| Git diff (hunks) | `<space>gd` |
-| Lazygit Logs | `<space>gl` |
-| Lazygit | `<space>lg` |
+| Function | Keymap | Mode |
+| -------------- | --------------- | ----- |
+| TODO/Fix/FIXME | `<space>pT` | n |
+| Look through ToDo comments | `<space>pt` | n |
+| Disable Indentated Lines | `<space>ic` | n |
+| Enable Indentated Lines | `<space>io` | n |
+| Help Pages | `<space>vh` | n |
+| Pick & Switch Git Branches | `<space>gbr` | n |
+| Pick Color Schemes | `<space>th` | n |
+| Search Man Pages | `<space>pm` | n |
+| Search Registers | `<space>p'` | n |
+| Search Keymaps | `<space>pk` | n |
+| Grep a visual selection | `<space>pvs` | v |
+| Grep Something | `<space>pw` | n |
+| Find nvim config files | `<space>pc` | n |
+| Find Files | `<space>pf` | n |
+| Close Buffer | `<space>dB` | n |
+| Fast Rename Current File | `<space>R` | n |
+| Git diff (hunks) | `<space>gd` | n |
+| Lazygit Logs | `<space>gl` | n |
+| Lazygit | `<space>lg` | n |
 
 ---
 
 ### Linting
-| Function | Keymap |
-| -------------- | --------------- |
-| Trigger linting for current file | `<space>l` |
+| Function | Keymap | Mode |
+| -------------- | --------------- | ----- |
+| Trigger linting for current file | `<space>l` | n |
 
 ---
 
 ### Mini (Files/Comment/Trailspace)
-| Function | Keymap |
-| -------------- | --------------- |
-| Open MiniFiles explorer | `<leader>e` |
-| Open MiniFiles at current file | `<leader>E` |
-| Toggle hidden files | `<leader>H` |
-| Trim trailing whitespace | `<leader>ts` |
-| Clear trailing whitespace highlight | `<leader>tc` |
+| Function | Keymap | Mode |
+| -------------- | --------------- | ----- |
+| Open MiniFiles explorer | `<leader>e` | n |
+| Open MiniFiles at current file | `<leader>E` | n |
+| Toggle hidden files | `<leader>H` | n |
+| Trim trailing whitespace | `<leader>ts` | n |
+| Clear trailing whitespace highlight | `<leader>tc` | n |
 
 ---
 
 ### Telescope
-| Function | Keymap |
-| -------------- | --------------- |
-| Fuzzy find recent files | `<leader>pr` |
-| Fuzzy find notifications | `<leader>pn` |
-| Find word under cursor | `<leader>pWs` |
-| Switch themes | `<leader>ths` |
+| Function | Keymap | Mode |
+| -------------- | --------------- | ----- |
+| Fuzzy find recent files | `<leader>pr` | n |
+| Fuzzy find notifications | `<leader>pn` | n |
+| Find word under cursor | `<leader>pWs` | n |
+| Switch themes | `<leader>ths` | n |
 
 ---
 
 ### Harpoon
-| Function | Keymap |
-| -------------- | --------------- |
-| Add file to harpoon | `<leader>ha` |
-| Toggle harpoon quick menu | `<leader>hl` |
-| Jump to file 1 | `<leader>1` |
-| Jump to file 2 | `<leader>2` |
-| Jump to file 3 | `<leader>3` |
-| Jump to file 4 | `<leader>4` |
-| Remove file 1 | `<leader>d1` |
-| Remove file 2 | `<leader>d2` |
-| Remove file 3 | `<leader>d3` |
-| Remove file 4 | `<leader>d4` |
+| Function | Keymap | Mode |
+| -------------- | --------------- | ----- |
+| Add file to harpoon | `<leader>ha` | n |
+| Toggle harpoon quick menu | `<leader>hl` | n |
+| Jump to file 1 | `<leader>1` | n |
+| Jump to file 2 | `<leader>2` | n |
+| Jump to file 3 | `<leader>3` | n |
+| Jump to file 4 | `<leader>4` | n |
+| Remove file 1 | `<leader>d1` | n |
+| Remove file 2 | `<leader>d2` | n |
+| Remove file 3 | `<leader>d3` | n |
+| Remove file 4 | `<leader>d4` | n |
 
 ---
 
 ### Git (Fugitive)
-| Function | Keymap |
-| -------------- | --------------- |
-| Open Git status | `<leader>gg` |
-| Git push (fugitive buffer) | `P` |
-| Git pull with rebase (fugitive buffer) | `p` |
-| Set upstream (fugitive buffer) | `t` |
+| Function | Keymap | Mode |
+| -------------- | --------------- | ----- |
+| Open Git status | `<leader>gg` | n |
+| Git push (fugitive buffer) | `P` | n |
+| Git pull with rebase (fugitive buffer) | `p` | n |
+| Set upstream (fugitive buffer) | `t` | n |
 
 ---
 
 ### Git (Gitsigns)
-| Function | Keymap |
-| -------------- | --------------- |
-| Next hunk | `]h` |
-| Previous hunk | `[h` |
-| Stage hunk | `<leader>gs` |
-| Reset hunk | `<leader>gr` |
-| Stage buffer | `<leader>gS` |
-| Reset buffer | `<leader>gR` |
-| Undo stage hunk | `<leader>gu` |
-| Preview hunk | `<leader>gp` |
-| Toggle line blame | `<leader>gB` |
-| Diff this | `<leader>gd` |
-| Diff this ~ | `<leader>gD` |
+| Function | Keymap | Mode |
+| -------------- | --------------- | ----- |
+| Next hunk | `]h` | n |
+| Previous hunk | `[h` | n |
+| Stage hunk | `<leader>gs` | n |
+| Reset hunk | `<leader>gr` | n |
+| Stage buffer | `<leader>gS` | n |
+| Reset buffer | `<leader>gR` | n |
+| Undo stage hunk | `<leader>gu` | n |
+| Preview hunk | `<leader>gp` | n |
+| Toggle line blame | `<leader>gB` | n |
+| Diff this | `<leader>gd` | n |
+| Diff this ~ | `<leader>gD` | n |
 
 ---
 
 ### Git (Worktree)
-| Function | Keymap |
-| -------------- | --------------- |
-| List git worktrees | `<leader>gwt` |
-| Create git worktree | `<leader>gwc` |
+| Function | Keymap | Mode |
+| -------------- | --------------- | ----- |
+| List git worktrees | `<leader>gwt` | n |
+| Create git worktree | `<leader>gwc` | n |
 
 ---
 
 ### Trouble
-| Function | Keymap |
-| -------------- | --------------- |
-| Workspace diagnostics | `<leader>xw` |
-| Document diagnostics | `<leader>xd` |
-| Symbols/todos | `<leader>xt` |
-| Location list | `<leader>xl` |
-| Quickfix list | `<leader>xq` |
+| Function | Keymap | Mode |
+| -------------- | --------------- | ----- |
+| Workspace diagnostics | `<leader>xw` | n |
+| Document diagnostics | `<leader>xd` | n |
+| Symbols/todos | `<leader>xt` | n |
+| Location list | `<leader>xl` | n |
+| Quickfix list | `<leader>xq` | n |
 
 ---
 
 ### Multi-Cursor
-| Function | Keymap |
-| -------------- | --------------- |
-| Line Skip Cursor (+1) | `<space>j` |
-| Line Skip Cursor (-1) | `<space>k` |
+| Function | Keymap | Mode |
+| -------------- | --------------- | ----- |
+| Line Skip Cursor (+1) | `<space>j` | n |
+| Line Skip Cursor (-1) | `<space>k` | n |
 
 ---
 
 ### Color-Picker
-| Function | Keymap |
-| -------------- | --------------- |
-| Toggle color highlighter | `<leader>cc` |
+| Function | Keymap | Mode |
+| -------------- | --------------- | ----- |
+| Toggle color highlighter | `<leader>cc` | n |
 
 ---
 
 ### LSP Commands
-| Function | Keymap |
-| -------------- | --------------- |
-| Show LSP info | `:LspInfo` |
-| Stop LSP clients | `:LspStop` |
-| Start LSP | `:LspStart` |
-| Restart LSP | `:LspRestart` |
+| Function | Keymap | Mode |
+| -------------- | --------------- | ----- |
+| Show LSP info | `:LspInfo` | n |
+| Stop LSP clients | `:LspStop` | n |
+| Start LSP | `:LspStart` | n |
+| Restart LSP | `:LspRestart` | n |
 
 ---
 
 ### Misc
-| Function | Keymap |
-| -------------- | --------------- |
-| Wrap with abbreviation | `<leader>xe` |
-| Clear notifications | `<leader>cn` |
+| Function | Keymap | Mode |
+| -------------- | --------------- | ----- |
+| Wrap with abbreviation | `<leader>xe` | n/v |
+| Clear notifications | `<leader>cn` | n |
