@@ -173,6 +173,7 @@ how a keymap works?
 | Git push (fugitive buffer) | `P` | n |
 | Git pull with rebase (fugitive buffer) | `p` | n |
 | Set upstream (fugitive buffer) | `t` | n |
+| Toggle git blame | `<leader>gbl` | n |
 
 ---
 
@@ -218,6 +219,16 @@ how a keymap works?
 | -------------- | --------------- | ----- |
 | Line Skip Cursor (+1) | `<space>j` | n |
 | Line Skip Cursor (-1) | `<space>k` | n |
+| Add cursor above/below the main cursor (-1) | `<A-k>` | n |
+| Add cursor above/below the main cursor (+1) | `<A-j>` | n |
+| Add or skip adding a new cursor by matching word/selection (Match Forward) | `<A-n>` | n |
+| Add or skip adding a new cursor by matching word/selection (Skip a match forward) | `<A-s>` | n |
+| Add or skip adding a new cursor by matching word/selection (Match Backward) | `<A-N>` | n |
+| Add or skip adding a new cursor by matching word/selection (Skip a match backward) | `<A-S>` | n |
+| Add and remove cursors with control + left click | `<c-leftmouse>` | n |
+| Add and remove cursors with control + left click | `<c-leftdrag>` | n |
+| Add and remove cursors with control + left click | `<c-leftrelease>` | n |
+
 
 ---
 
