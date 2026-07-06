@@ -22,6 +22,7 @@ how a keymap works?
 - [Git (Fugitive)](#git-fugitive)
 - [Git (Gitsigns)](#git-gitsigns)
 - [Git (Worktree)](#git-worktree)
+- [Todo Comments](#todo-comments)
 - [Trouble](#trouble)
 - [Multi-Cursor](#multi-cursor)
 - [Color-Picker](#color-picker)
@@ -170,8 +171,8 @@ how a keymap works?
 | Function | Keymap | Mode |
 | -------------- | --------------- | ----- |
 | Open Git status | `<leader>gg` | n |
-| Git push (fugitive buffer) | `P` | n |
-| Git pull with rebase (fugitive buffer) | `p` | n |
+| Git push (fugitive buffer) | `<leader>P` | n |
+| Git pull with rebase (fugitive buffer) | `<leader>p` | n |
 | Set upstream (fugitive buffer) | `t` | n |
 | Toggle git blame | `<leader>gbl` | n |
 
@@ -203,6 +204,14 @@ how a keymap works?
 
 ---
 
+### Todo comments
+| Function | Keymap | Mode |
+| -------------- | --------------- | ----- |
+| Jump to next | `]t` | n |
+| Jump to prev | `[t` | n |
+
+---
+
 ### Trouble
 | Function | Keymap | Mode |
 | -------------- | --------------- | ----- |
@@ -217,6 +226,7 @@ how a keymap works?
 ### Multi-Cursor
 | Function | Keymap | Mode |
 | -------------- | --------------- | ----- |
+| Disable and Enable Cursors | `<c-q>` | n |
 | Line Skip Cursor (+1) | `<space>j` | n |
 | Line Skip Cursor (-1) | `<space>k` | n |
 | Add cursor above/below the main cursor (-1) | `<A-k>` | n |
@@ -228,7 +238,10 @@ how a keymap works?
 | Add and remove cursors with control + left click | `<c-leftmouse>` | n |
 | Add and remove cursors with control + left click | `<c-leftdrag>` | n |
 | Add and remove cursors with control + left click | `<c-leftrelease>` | n |
-
+| Select a different cursor as the main one (previous) | `<left>` | n |
+| Select a different cursor as the main one (next) | `<right>` | n |
+| Delete the main cursor | `<A-x>` | n |
+| Enable and clear cursors | `<esc>` | n |
 
 ---
 
@@ -274,9 +287,16 @@ how a keymap works?
 | Function | Keymap | Mode |
 | -------------- | --------------- | ----- |
 | Open parent directory | `-` | n |
+| Open cwd | `_` | n |
 | Open parent directory (floating) | `<leader>-` | n |
 | Toggle hidden files | `g.` | n |
+| Toggle trash | `g\\` | n |
 | Show help | `g?` | n |
+| Preview | `<C-p>` | n |
+| Change directory | ` | n |
+| Change directory (scope: tab) | `~` | n |
+| Change sort | `gs` | n |
+| Open external | `gx` | n |
 | Refresh | `<C-r>` | n |
 | Close | `q` | n |
 
