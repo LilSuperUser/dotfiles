@@ -256,18 +256,18 @@ return {
 				end,
 			})
 			-- NOTE: Auto switch to tokyonight for markdown files only
-			vim.api.nvim_create_autocmd("FileType", {
-				pattern = { "markdown" },
-				callback = function()
-					local buffer = vim.api.nvim_get_current_buf()
-					if not vim.b[buffer].tokyonight_applied then
-						if vim.fn.expand("%:t") ~= "" and vim.api.nvim_buf_get_option(0, "buftype") ~= "nofile" then
-							vim.cmd("colorscheme tokyonight")
-						end
-						vim.b[buffer].tokyonight_applied = true
-					end
-				end,
-			})
+			-- vim.api.nvim_create_autocmd("FileType", {
+			-- 	pattern = { "markdown" },
+			-- 	callback = function()
+			-- 		local buffer = vim.api.nvim_get_current_buf()
+			-- 		if not vim.b[buffer].tokyonight_applied then
+			-- 			if vim.fn.expand("%:t") ~= "" and vim.api.nvim_buf_get_option(0, "buftype") ~= "nofile" then
+			-- 				vim.cmd("colorscheme tokyonight")
+			-- 			end
+			-- 			vim.b[buffer].tokyonight_applied = true
+			-- 		end
+			-- 	end,
+			-- })
 		end,
 	},
 }

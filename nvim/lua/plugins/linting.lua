@@ -7,11 +7,11 @@ return {
 		local eslint = lint.linters.eslint_d
 
 		lint.linters_by_ft = {
-			javascript = { "biomejs" },
-			typescript = { "biomejs" },
-			javascriptreact = { "biomejs" },
-			typescriptreact = { "biomejs" },
-			svelte = { "biomejs" },
+			-- javascript = { "biomejs" },
+			-- typescript = { "biomejs" },
+			-- javascriptreact = { "biomejs" },
+			-- typescriptreact = { "biomejs" },
+			-- svelte = { "biomejs" },
 			makefile = { "checkmake" },
 		}
 
