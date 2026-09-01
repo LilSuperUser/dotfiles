@@ -140,3 +140,14 @@ alias monitor="pactl set-default-source alsa_output.pci-0000_06_00.6.HiFi__Headp
 fpath+=~/.zfunc; autoload -Uz compinit; compinit
 export EDITOR=nvim
 export VISUAL=nvim
+
+# Shell wrapper for yazi
+# Change the CWD to the current directory in yazi by using q to quit
+# Or, quit without changing the CWD using Q
+function yazi() {
+	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+	command yazi "$@" --cwd-file="$tmp"
+	IFS= read -r -d '' cwd < "$tmp"
+	[ "$cwd" != "$PWD" ] && [ -d "$cwd" ] && builtin cd -- "$cwd"
+	command rm -f -- "$tmp"
+}
