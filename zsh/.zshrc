@@ -133,6 +133,11 @@ pokemon-colorscripts() {
 mann() {
     MANPAGER=cat man "$@" | bat -l man --style=-numbers --paging=always
 }
+
+catt() {
+    bat --style=full --paging=never "$@"
+}
+
 # Alias to change the source of input fas fas
 alias mic="pactl set-default-source alsa_input.pci-0000_06_00.6.HiFi__Mic2__source && notify-send '🎤 Input: Stereo Mic (Mic2) active'"
 alias monitor="pactl set-default-source alsa_output.pci-0000_06_00.6.HiFi__Headphones__sink.monitor && notify-send '🔁 Input: Monitor active'"
