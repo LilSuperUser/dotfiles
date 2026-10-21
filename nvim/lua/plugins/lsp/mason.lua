@@ -29,14 +29,17 @@ return {
 				"bashls",
 				"html",
 				"cssls",
-                "ts_ls",
+                -- "ts_ls",
+                "vtsls",
 				"tailwindcss",
 				"emmet_language_server",
 				"lua_ls",
 				"jsonls",
                 "hyprls",
                 "jdtls",
-                "tombi"
+                "tombi",
+                "astro",
+                "marksman"
 			},
 			automatic_enable = true,
 		})

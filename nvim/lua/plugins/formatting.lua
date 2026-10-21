@@ -55,6 +55,7 @@ return {
 				asm = { "asmfmt" },
 				c = { "clang_format" },
 				cpp = { "clang_format" },
+				astro = { "prettier" },
 			},
 			-- format_on_save = {
 			--     lsp_fallback = true,

@@ -155,9 +155,35 @@ return {
 			},
 		})
 
+		-- NOTE: Replaced by vtsls (wrapper around vscode's own TS extension)
 		-- Standard TS/JS for Node projects (package.json, tsconfig.json, etc.)
-		vim.lsp.config("ts_ls", {
-			cmd = { "typescript-language-server", "--stdio" },
+		-- vim.lsp.config("ts_ls", {
+		-- 	cmd = { "typescript-language-server", "--stdio" },
+		-- 	filetypes = {
+		-- 		"javascript",
+		-- 		"javascriptreact",
+		-- 		"javascript.jsx",
+		-- 		"typescript",
+		-- 		"typescriptreact",
+		-- 		"typescript.tsx",
+		-- 	},
+		-- 	root_markers = { "package.json", "tsconfig.json", "jsconfig.json" },
+		-- })
+
+		local function astro_ts_plugin_path()
+			local ok, mr = pcall(require, "mason-registry")
+			if not ok then
+				return nil
+			end
+			local ok2, pkg = pcall(mr.get_package, "astro-language-server")
+			if not ok2 then
+				return nil
+			end
+			return pkg:get_install_path() .. "/node_modules/@astrojs/ts-plugin"
+		end
+
+		vim.lsp.config("vtsls", {
+			cmd = { "vtsls", "--stdio" },
 			filetypes = {
 				"javascript",
 				"javascriptreact",
@@ -167,6 +193,19 @@ return {
 				"typescript.tsx",
 			},
 			root_markers = { "package.json", "tsconfig.json", "jsconfig.json" },
+			settings = {
+				vtsls = {
+					tsserver = {
+						globalPlugins = {
+							{
+								name = "@astrojs/ts-plugin",
+								location = astro_ts_plugin_path(),
+								enableForWorkspaceTypeScriptVersions = true,
+							},
+						},
+					},
+				},
+			},
 		})
 
 		vim.lsp.config("emmet_language_server", {
@@ -175,6 +214,7 @@ return {
 				"html",
 				"htmldjango",
 				"vue",
+				"astro",
 			},
 			init_options = {
 				showAbbreviationSuggestions = true,
@@ -205,23 +245,23 @@ return {
 		vim.lsp.config("hyprls", {})
 
 		vim.lsp.config("tombi", {
-            filetypes = {"toml"},
-            root_markers = {
-                ".git",
-                "tombi.toml",
-                "pyproject.toml",
-            }
-        })
+			filetypes = { "toml" },
+			root_markers = {
+				".git",
+				"tombi.toml",
+				"pyproject.toml",
+			},
+		})
 
-        vim.lsp.config("jdtls", {
-            filetypes = {"java"},
+		vim.lsp.config("jdtls", {
+			filetypes = { "java" },
 
-            root_markers = {
-                ".git",
-                "pom.xml",
-                "build.gradle",
-            }
-        })
+			root_markers = {
+				".git",
+				"pom.xml",
+				"build.gradle",
+			},
+		})
 
 		-- Mason-lspconfig automatically calls vim.lsp.enable() for installed servers
 		-- No need to manually enable each server
