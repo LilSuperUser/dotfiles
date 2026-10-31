@@ -142,6 +142,8 @@ catt() {
 alias mic="pactl set-default-source alsa_input.pci-0000_06_00.6.HiFi__Mic2__source && notify-send '🎤 Input: Stereo Mic (Mic2) active'"
 alias monitor="pactl set-default-source alsa_output.pci-0000_06_00.6.HiFi__Headphones__sink.monitor && notify-send '🔁 Input: Monitor active'"
 
+alias hexer="xxd"
+
 fpath+=~/.zfunc; autoload -Uz compinit; compinit
 export EDITOR=nvim
 export VISUAL=nvim
@@ -156,3 +158,4 @@ function yazi() {
 	[ "$cwd" != "$PWD" ] && [ -d "$cwd" ] && builtin cd -- "$cwd"
 	command rm -f -- "$tmp"
 }
+export PATH="$HOME/.bun/bin:$PATH"
