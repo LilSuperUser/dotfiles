@@ -1,0 +1,101 @@
+# =============================================================================
+#  dark-souls-grub  -  a restrained, dark-fantasy GRUB 2 theme
+# -----------------------------------------------------------------------------
+# NOTE: `desktop-image` points at background.png
+# (install.sh puts the background you pick (backgrounds/[NN]-Name.png) there.)
+# =============================================================================
+
+# ====================
+# ------ global ------
+# ====================
+title-text: ""
+title-font: "Cormorant Garamond Medium Regular 24"
+title-color: "#B9B1A0"
+
+desktop-image: "background.png"
+desktop-image-scale-method: "crop"
+desktop-image-h-align: "center"
+desktop-image-v-align: "center"
+desktop-color: "#000000"
+
+# dialogs: "press any key", password prompt, errors
+message-font: "Cormorant Garamond Medium Regular 24"
+message-color: "#F0DAA6"
+message-bg-color: "#0B0907"
+
+# ======================================================================
+# ------ console ('c'), entry editor ('e') and kernel boot output ------
+# ======================================================================
+terminal-font: "IBM Plex Mono Medium Regular 22"
+terminal-box: "assets/terminal_*.png"
+terminal-border: "14"
+terminal-left: "10%"
+terminal-top: "10%"
+terminal-width: "80%"
+terminal-height: "80%"
+
+# ==========================
+# ------- boot menu --------
+# ==========================
++ boot_menu {
+    left = 17%
+    top = 27%
+    width = 66%
+    height = 46%
+
+    item_font = "Cormorant Garamond Medium Regular 36"
+    selected_item_font = "Cormorant Garamond Bold Regular 36"
+    item_color = "#B9B1A0"
+    selected_item_color = "#F0DAA6"
+
+    # no icons
+    icon_width = 0
+    icon_height = 0
+    item_icon_space = 0
+
+    item_height = 62
+    item_padding = 0
+    item_spacing = 4
+
+    menu_pixmap_style = "assets/menu_*.png"
+    item_pixmap_style = "assets/item_*.png"
+    selected_item_pixmap_style = "assets/select_*.png"
+
+    # slim scrollbar in the panel's right margin
+    # (only drawn when entries overflow)
+    scrollbar = true
+    scrollbar_slice = "east"
+    scrollbar_width = 6
+    scrollbar_left_pad = 8
+    scrollbar_frame = "assets/scrollbar_frame_*.png"
+    scrollbar_thumb = "assets/scrollbar_thumb_*.png"
+}
+
+# =========================
+# ------- countdown -------
+# =========================
++ label {
+    id = "__timeout__"
+    top = 76%
+    left = 0
+    width = 100%
+    height = 32
+    align = "center"
+    font = "Cormorant Garamond Medium Regular 24"
+    color = "#A39A86"
+    text = "Booting in %d seconds"
+}
+
+# ==========================
+# ------- key hints --------
+# ==========================
++ label {
+    top = 92%
+    left = 0
+    width = 100%
+    height = 32
+    align = "center"
+    font = "Cormorant Garamond Medium Regular 24"
+    color = "#8F8878"
+    text = "↑ ↓  :  Select          Enter  :  Boot          E  :  Edit          C  :  Console          Esc  :  Back"
+}
