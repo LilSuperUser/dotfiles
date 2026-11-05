@@ -1,42 +1,42 @@
 return {
 	"nvim-treesitter/nvim-treesitter",
-	branch = "master",
+	branch = "main",
 	lazy = false,
 	build = ":TSUpdate",
 	config = function()
-		local ts = require("nvim-treesitter.configs")
-		ts.setup({
-			highlight = {
-				enable = true,
-			},
-			-- enable indentation
-			indent = { enable = false },
-			ensure_installed = {
-				"c",
-				"cpp",
-				"rust",
-				"go",
-				"python",
-				"css",
-				"javascript",
-                "typescript",
-                "tsx",
-                "astro",
-				"html",
-				"lua",
-				"vim",
-				"markdown",
-				"markdown_inline",
-			},
-			incremental_selection = {
-				enable = true,
-				keymaps = {
-					init_selection = "<C-space>",
-					node_incremental = "<C-space>",
-					scope_incremental = false,
-				},
-			},
-			additional_vim_regex_highlighting = false,
+		local ts = require("nvim-treesitter")
+		ts.setup({})
+
+		-- No-op for parsers already installed; installs missing ones async
+		ts.install({
+			"c",
+			"cpp",
+			"rust",
+			"go",
+			"python",
+			"css",
+			"javascript",
+			"typescript",
+			"tsx",
+			"astro",
+			"html",
+			"lua",
+			"vim",
+			"vimdoc",
+			"query",
+			"markdown",
+			"markdown_inline",
+		})
+
+		-- `main` no longer auto-enables highlighting; start it per filetype
+		vim.api.nvim_create_autocmd("FileType", {
+			group = vim.api.nvim_create_augroup("ts_start", { clear = true }),
+			callback = function(args)
+				local lang = vim.treesitter.language.get_lang(args.match)
+				if lang then
+					pcall(vim.treesitter.start, args.buf, lang)
+				end
+			end,
 		})
 	end,
 }
